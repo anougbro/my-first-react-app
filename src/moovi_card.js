@@ -1,3 +1,6 @@
+
+import React from "react";
+import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import MovieList from "./MovieList";
 import Filter from "./Filter";
@@ -47,4 +50,16 @@ function App() {
   );
 }
 
-export default App;
+const MovieCard = ({ movie }) => {
+  return (
+    <div className="movie-card">
+      <img src={movie.posterURL} alt={movie.title} />
+      <h2>
+        <Link to={`/movie/${movie.title}`}>{movie.title}</Link>
+      </h2>
+      <p>⭐ {movie.rating}</p>
+    </div>
+  );
+};
+
+export default MovieCard;
